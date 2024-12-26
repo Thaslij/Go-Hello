@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  namespace: default  
+spec:
+  selector:
+    app: go-client-k8s
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8082
