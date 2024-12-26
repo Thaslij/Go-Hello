@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-client-k8s
+  namespace: default  
+spec:
+  selector:
+    matchLabels:
+      app: go-client-k8s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: go-client-k8s
+    spec:
+      containers:
+        - name: go-client-k8s
+          image: thaslij/hello-world:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082 
